@@ -12,18 +12,20 @@ export const Dashboard = () => {
     //Salva um objeto/variavel/componente na memória independente da mudança de estado
     const counterRef = useRef(0);
 
-    const usuarioLogadoContext = useUsuarioLogado();
+    const {nomeDoUsuario, logout} = useUsuarioLogado();
 
     return (
         <div>
             <p>Dashboard</p>
 
-            <p>{usuarioLogadoContext.nomeDoUsuario}</p>
+            <p>{nomeDoUsuario}</p>
 
             <p>Contador: {counterRef.current}</p>
 
             <button onClick={() => counterRef.current++}>Somar</button>
             <button onClick={() => console.log(counterRef.current)}>Log</button>
+            <br/><br/>
+            <button onClick={logout}>Logout</button>
             <br/><br/>
             <Link to="/entrar">Login</Link>
             <br/><br/>
